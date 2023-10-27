@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <record>
+        <id>1</id>
+        <first_name>Winonah</first_name>
+        <email>wmustoo0@opensource.org</email>
+    </record>
+    <record>
+        <id>2</id>
+        <first_name>Marlow</first_name>
+        <email>mbulfoy1@disqus.com</email>
+    </record>
+    <record>
+        <id>3</id>
+        <first_name>Ronalda</first_name>
+        <email>rwoolaghan2@mysql.com</email>
+    </record>
+    <record>
+        <id>4</id>
+        <first_name>Benedicto</first_name>
+        <email>bsimmen3@bloglines.com</email>
+    </record>
+    <record>
+        <id>5</id>
+        <first_name>Lois</first_name>
+        <email>lofallone4@hao123.com</email>
+    </record> 
+</dataset>

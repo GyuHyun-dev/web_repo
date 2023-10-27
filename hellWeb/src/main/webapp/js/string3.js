@@ -11,7 +11,7 @@ today.setMonth(10);
 today.setDate(1);
 today.setHours(10);
 
-console.log(today.toString()) // 
+console.log(today.toString()) //
 
 function dateFormat(today) {
     // yyyy-MM-dd hh:mm:ss 로 출력
