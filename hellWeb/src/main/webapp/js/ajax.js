@@ -55,7 +55,7 @@ function loadXML() {
     //console.log(xhtp.responseXML);
     let doc = xhtp.responseXML;
     let records = doc.getElementsByTagName('record')
-    console.log(records);
+    //console.log(records);
 
     let titles = ["회원번호", "비번", "이름", "연락처"];
     let dataAry = [];
