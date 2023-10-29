@@ -45,6 +45,10 @@ function loadJson() {
     console.log(xhtp.responseText)
     let result = JSON.parse(xhtp.responseText);
     console.log(result);
+    
+      let titles = ['회원번호', '비밀번호', '이름', '연락처'];
+    let tt = table.makeTable(titles, result);
+    document.getElementById('show').innerHTML = tt;
 }
 
 function loadXML() {
