@@ -1,7 +1,7 @@
 // array5.js
 
 const arr1 = ['펭수', '라이언', '어피치', '콘', '무지']
-arr1.sort(); // 기본값 가나다 순 
+arr1.sort(); // 기본값 가나다 순
 console.log(arr1); // 배열자체를 변경 
 
 const arr2 = [4, 8, 1, 12, 23, 9]

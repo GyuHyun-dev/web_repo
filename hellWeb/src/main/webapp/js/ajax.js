@@ -45,10 +45,17 @@ function loadJson() {
     console.log(xhtp.responseText)
     let result = JSON.parse(xhtp.responseText);
     console.log(result);
-    
-      let titles = ['회원번호', '비밀번호', '이름', '연락처'];
-    let tt = table.makeTable(titles, result);
-    document.getElementById('show').innerHTML = tt;
+    let titles = ["회원번호", "비번", "이름", "연락처"];
+    let dataAry = [];
+    result.forEach(member => {
+        dataAry.push({mid: member.mid, pass: member.pass, 
+                      name: member.name, phone: member.phone
+        })
+    })
+    	// 페이지 작성
+        result = table.makeTable(titles, dataAry);
+        console.log(result);
+        document.getElementById('show').innerHTML = result;
 }
 
 function loadXML() {
@@ -81,3 +88,4 @@ document.getElementById('list').innerHTML += tr;
 // let tr = '<tr><td>M009</td><td>9999</td><td>민식이</td><td>010-9999-9999</td></tr>'
 // document.getElementById('list').innerHTML += tr;
 } // end of onload.
+

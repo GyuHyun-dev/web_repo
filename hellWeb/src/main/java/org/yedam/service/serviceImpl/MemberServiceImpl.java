@@ -56,4 +56,58 @@ public class MemberServiceImpl implements MemberService{
 		}
 	}
 
+	@Override
+	public boolean addMember(MemberVO vo) {
+		String sql = "INSERT INTO MEMBER VALUES(?, ?, ?, ?)";
+		conn = dataSource.getConnection();
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getMid());
+			psmt.setString(2, vo.getPass());
+			psmt.setString(3, vo.getName());
+			psmt.setString(4, vo.getPhone());
+			
+			int r = psmt.executeUpdate(); // 반환되는 값은 데이터처리 건수
+			if(r == 1) {
+				return true;
+			}
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return false;
+	}
+
+
+@Override
+public boolean modifyMember(MemberVO vo) {
+	String sql = "UPDATE MEMBER SET PASS = ?, NAME = ?, PHONE = ? "
+			+ "WHERE MID = ?";
+	conn = dataSource.getConnection();
+	
+	try {
+		psmt = conn.prepareStatement(sql);
+		psmt.setString(1, vo.getPass());
+		psmt.setString(2, vo.getName());
+		psmt.setString(3, vo.getPhone());
+		psmt.setString(4, vo.getMid());
+		
+		int r = psmt.executeUpdate(); // 반환되는 값은 데이터처리 건수
+		if(r == 1) {
+			return true;
+		}
+		
+	} catch (SQLException e) {
+		
+		e.printStackTrace();
+	} finally {
+		close();
+	}
+	return false;
 }
+}
+
