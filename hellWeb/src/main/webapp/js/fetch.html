@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>js/fetch.html</title>
+	<script type="module" src="fetch1.js"></script>
+	
+</head>
+
+<body>
+	<div id="show"></div>
+	<script>
+		// 240p
+		// Promis 객체 (fullfilled, pending, rejectde)
+		const promise = new Promise(function (resolve) {
+			setTimeout(function () {
+				console.log('실행');
+				resolve('Success');
+			}, 500); // 500 밀리세컨 후에 실행
+		});
+
+		promise
+			.then((resolve) => {
+				console.log('then', resolve);
+				return 'OK'; // promise 반환
+			})
+			.then((result) => {
+				console.log('2then', result);   // OK를 던져줌
+				return message;  // message 값에 아무것도 없어서 밑에 catch 에서 에러처리
+			})
+			.catch((err) => {	// 어디에서 에러가 나건 예외처리 
+				console.log('error', err)   // 위에서 에러가나면 밑에코드 실행하지않고 바로 catch로 넘김
+			})  
+	</script>
+</body>
+
+</html>
