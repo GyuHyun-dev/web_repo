@@ -16,7 +16,7 @@
 			<th>글번호</th>
 			<td><%=vo.getBoardNo()%></td>
 			<th>작성일시</th>
-			<td><%=vo.getWriteDate()%></td>
+			<td><%=vo.getWriterDate()%></td>
 		</tr>
 		<tr>
 			<th>글제목</th>

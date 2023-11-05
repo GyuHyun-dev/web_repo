@@ -100,7 +100,7 @@ public class BoardDAO {
 				vo.setTitle(rs.getString("TITLE"));
 				vo.setContent(rs.getString("CONTENT"));
 				vo.setWriter(rs.getString("WRITER"));
-				vo.setWriteDate(rs.getDate("WRITE_DATE"));
+				vo.setWriterDate(rs.getDate("WRITER_DATE"));
 				vo.setViewCnt(rs.getInt("VIEW_CNT"));
 				vo.setImage(rs.getString("IMAGE"));
 				vo.setLastUpdate(rs.getDate("LAST_UPDATE"));
@@ -129,7 +129,7 @@ public class BoardDAO {
 				vo.setTitle(rs.getString("TITLE"));
 				vo.setContent(rs.getString("CONTENT"));
 				vo.setWriter(rs.getString("WRITER"));
-				vo.setWriteDate(rs.getDate("WRITE_DATE"));
+				vo.setWriterDate(rs.getDate("WRITER_DATE"));
 				vo.setViewCnt(rs.getInt("VIEW_CNT"));
 				vo.setImage(rs.getString("IMAGE"));
 				vo.setLastUpdate(rs.getDate("LAST_UPDATE"));

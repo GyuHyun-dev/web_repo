@@ -19,7 +19,7 @@ public class GetBoardControl implements Command {
 		
 		req.setAttribute("bno", vo);
 		
-		// 요청재지정. 
+		// 요청재지정.
 		try {
 		req.getRequestDispatcher("WEB-INF/board/getBoard.jsp")
 		.forward(req, resp);

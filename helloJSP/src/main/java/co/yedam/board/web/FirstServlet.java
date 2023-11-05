@@ -17,10 +17,10 @@ public class FirstServlet extends HttpServlet {
 
 	}
 
-	@Override
+	@Override  // service가 없으면 doGet이나  doPost 실행, service가 있으면 service 실행
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("service실행");
-		doGet(req, resp);
+		doGet(req, resp);  // doGet 도 시핼시켜 주려면 service 안에 doGet 메소드 넣어줘야함.
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
