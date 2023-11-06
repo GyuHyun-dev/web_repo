@@ -15,7 +15,7 @@
 			<th>비밀번호</th>
 			<th>이름</th>
 			<th>연락처</th>
-			<th>ㅇㅇ</th>
+			<th>등급</th>
 		</thead>
 		<tr>
 	<tbody>
@@ -24,8 +24,8 @@
 	%>
 	<tr>
 		<td><%=vo.getMid()%></td>
-		<td><%=vo.getName()%></td>
 		<td><%=vo.getPass()%></td>
+		<td><%=vo.getName()%></td>	
 		<td><%=vo.getPhone()%></td>
 		<td><%=vo.getResponsibility()%></td>
 	</tr>
