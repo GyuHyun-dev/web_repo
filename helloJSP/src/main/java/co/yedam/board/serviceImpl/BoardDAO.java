@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import co.yedam.board.service.BoardVO;
+import co.yedam.board.service.MemberVO;
 import co.yedam.common.DataSource;
 
 public class BoardDAO {
@@ -31,13 +32,14 @@ public class BoardDAO {
 	}
 
 	public int insert(BoardVO vo) {
-		sql = "INSERT INTO BOARD (BOARD_NO, TITLE, CONTENT, WRITER) VALUES (SEQ_BOARD.NEXTVAL, ?, ?, ?)";
+		sql = "INSERT INTO BOARD (BOARD_NO, TITLE, CONTENT, WRITER, IMAGE) VALUES (SEQ_BOARD.NEXTVAL, ?, ?, ?, ?)";
 		conn = ds.getConnection();
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getTitle());
 			psmt.setString(2, vo.getContent());
 			psmt.setString(3, vo.getWriter());
+			psmt.setString(4, vo.getImage());
 
 			int r = psmt.executeUpdate();
 			return r;
@@ -100,7 +102,7 @@ public class BoardDAO {
 				vo.setTitle(rs.getString("TITLE"));
 				vo.setContent(rs.getString("CONTENT"));
 				vo.setWriter(rs.getString("WRITER"));
-				vo.setWriterDate(rs.getDate("WRITER_DATE"));
+				vo.setWriteDate(rs.getDate("WRITE_DATE"));
 				vo.setViewCnt(rs.getInt("VIEW_CNT"));
 				vo.setImage(rs.getString("IMAGE"));
 				vo.setLastUpdate(rs.getDate("LAST_UPDATE"));
@@ -129,7 +131,7 @@ public class BoardDAO {
 				vo.setTitle(rs.getString("TITLE"));
 				vo.setContent(rs.getString("CONTENT"));
 				vo.setWriter(rs.getString("WRITER"));
-				vo.setWriterDate(rs.getDate("WRITER_DATE"));
+				vo.setWriteDate(rs.getDate("WRITE_DATE"));
 				vo.setViewCnt(rs.getInt("VIEW_CNT"));
 				vo.setImage(rs.getString("IMAGE"));
 				vo.setLastUpdate(rs.getDate("LAST_UPDATE"));
@@ -161,5 +163,53 @@ public class BoardDAO {
 		return 0;
 
 	}
-
+	// 아이디/비번 => 조회값(boolean)
+	public MemberVO getUser(String id, String pw) {
+		sql = "SELECT * FROM MEMBER WHERE MID=? AND PASS=?";
+		conn = ds.getConnection();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setString(2, pw);
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				MemberVO vo = new MemberVO();
+				vo.setMid(rs.getString("mid"));
+				vo.setName(rs.getString("name"));
+				vo.setPass(rs.getString("pass"));
+				vo.setPhone(rs.getString("phone"));
+				vo.setResponsibility(rs.getString("responsibility"));
+				return vo;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return null;
+	}
+	public List<MemberVO> listMem(){
+		sql = "SELECT * FROM MEMBER ";
+		conn = ds.getConnection();
+		List<MemberVO> list = new ArrayList<>();
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				MemberVO vo = new MemberVO();
+				vo.setMid(rs.getString("mid"));
+				vo.setName(rs.getString("name"));
+				vo.setPass(rs.getString("pass"));
+				vo.setPhone(rs.getString("phone"));
+				vo.setResponsibility(rs.getString("responsibility"));
+				list.add(vo);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list;
+	}
 }

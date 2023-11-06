@@ -10,7 +10,7 @@ public class BoardVO {
 	private String title;
 	private String content;
 	private String writer;
-	private Date writerDate;
+	private Date writeDate;
 	private int viewCnt;
 	private String image;
 	private Date lastUpdate;

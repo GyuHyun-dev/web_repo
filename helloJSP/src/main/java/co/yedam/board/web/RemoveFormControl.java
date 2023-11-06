@@ -8,25 +8,21 @@ import co.yedam.board.service.BoardVO;
 import co.yedam.board.serviceImpl.BoardServiceImpl;
 import co.yedam.common.Command;
 
-public class GetBoardControl implements Command {
+public class RemoveFormControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		// boardNo : 1 => DB serch => jsp
 		String bno = req.getParameter("bno");
 		BoardService svc = new BoardServiceImpl();
 		BoardVO vo = svc.getBoard(Integer.parseInt(bno));
-		System.out.println(vo);
-		req.setAttribute("bno", vo);
-		
-		// 요청재지정.
+		req.setAttribute("vo", vo);
+
 		try {
-		req.getRequestDispatcher("WEB-INF/board/getBoard.jsp")
-		.forward(req, resp);
+			req.getRequestDispatcher("WEB-INF/board/removeForm.jsp").forward(req, resp);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 	}
+
 }
-
-
