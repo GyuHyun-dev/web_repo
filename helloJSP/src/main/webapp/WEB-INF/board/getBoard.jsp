@@ -81,6 +81,7 @@
 
 	<p><a href="boardList.do">목록으로</a></p>
 	<script>
+		// form submit에 대응되는 서버요청이 한개만 매핑된듯
 		document.querySelector('input[type=button]')
 			.addEventListener('click', function (e) {
 				document.forms.myFrm.action = 'removeForm.do';
