@@ -1,36 +1,49 @@
 package co.yedam.common;
 
-import co.yedam.board.service.BoardVO;
-import co.yedam.board.serviceImpl.BoardDAO;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import co.yedam.reply.mapper.ReplyMapper;
+import co.yedam.reply.service.ReplyVO;
 
 public class MainExe {
 
 	public static void main(String[] args) {
 		
-		BoardDAO dao = new BoardDAO();
-		BoardVO vo = new BoardVO();
+		SqlSession session = DataSourceMybatis.getInstance().openSession(true);
+		ReplyMapper mapper = session.getMapper(ReplyMapper.class);
 		
-		System.out.println(dao.list());
-		
-		vo.setTitle("네번째제목");
-		vo.setContent("네번째내용");
-		vo.setWriter("USER04");
-		dao.insert(vo);
-		
-		System.out.println(dao.list());
-		
-		vo.setBoardNo(4);
-		vo.setTitle("오번째제목");
-		vo.setContent("오번째내용");		
-		vo.setWriter("USER05");
-		
-		System.out.println(dao.list());
-		
-		dao.delete(4);
-		
-		System.out.println(dao.list());
+		ReplyVO vo = new ReplyVO();
+		vo.setReply("1");
+		vo.setReplyNo(2);
+		System.out.println(mapper.updateReply(vo));
 	}
-	
+}
+//		BoardDAO dao = new BoardDAO();
+//		BoardVO vo = new BoardVO();
+//		
+//		System.out.println(dao.list());
+		
+//		vo.setTitle("네번째제목");
+//		vo.setContent("네번째내용");
+//		vo.setWriter("USER04");
+//		dao.insert(vo);
+		
+//		System.out.println(dao.list());
+		
+//		vo.setBoardNo(4);
+//		vo.setTitle("오번째제목");
+//		vo.setContent("오번째내용");		
+//		vo.setWriter("USER05");
+//		
+//		System.out.println(dao.list());
+//		
+//		dao.delete(4);
+//		
+//		System.out.println(dao.list());
+//	}
+
 	// DB
 //	CREATE TABLE BOARD (
 //		    BOARD_NO        NUMBER,
@@ -58,4 +71,3 @@ public class MainExe {
 //		INSERT INTO BOARD (BOARD_NO, TITLE, CONTENT, WRITER)
 //		VALUES (SEQ_BOARD.NEXTVAL, '세번째제목', '세번째내용', 'USER01');
 
-}
