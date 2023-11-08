@@ -34,4 +34,6 @@
   <select id="listMem" resultType="co.yedam.board.service.MemberVO">
   	SELECT * FROM MEMBER 
   </select>
+  
+  
 </mapper>

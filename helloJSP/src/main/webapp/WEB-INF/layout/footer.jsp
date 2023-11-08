@@ -7,7 +7,7 @@
 <!-- footer 내용. -->
 <footer class="py-5 bg-white">
   <div class="container px-4 px-lg-5">
-    <p class="m-0 text-center">Copyright © 1강의장
+    <p class="m-0 text-center">Copyright © Vue, Spring 화이팅!!!
     </p>
   </div>
 </footer>

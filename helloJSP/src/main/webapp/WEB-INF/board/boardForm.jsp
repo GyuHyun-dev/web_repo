@@ -19,7 +19,7 @@
 		</tr>
 		<tr>
 			<th>작성자</th>
-			<td><input type="text" readonly class="form-control" name="writer" value="<%=logId%>"></td>
+			<td><input type="text" readonly class="form-control" name="writer" value="${logId }"></td>
 		</tr>
 		<tr>
 			<td colspan="2"><textarea class="form-control" name="content"></textarea></td>		
@@ -39,4 +39,4 @@
 	</form>
 </body>
 </html>
-<%@include file="../layout/footer.jsp" %>
+<jsp:include page="../layout/footer.jsp"></jsp:include>	

@@ -2,19 +2,20 @@ package co.yedam.common;
 
 import java.io.IOException;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class logoutControl implements Command {
+public class ChartFormControl implements Command {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		
-		req.getSession().invalidate();
-		// 세션삭제 후 main.do 로 이동
+		// TODO Auto-generated method stub
 		try {
-			resp.sendRedirect("main.do");
-		} catch (IOException e) {
+			req.getRequestDispatcher("WEB-INF/main/chart.jsp") // 
+			.forward(req, resp);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
