@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());a
 		Map<String, Integer> map = new HashMap<>();
 		map.put("홍길동", 90);  // 홍길동 , 90 애들이 key
 		map.put("김길동", 95);
